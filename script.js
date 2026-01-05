@@ -1,7 +1,9 @@
 const botoes = document.querySelectorAll('.botao');
 const display = document.querySelector('input')
 let valorAtual = "";
-let valorAntigo = ""
+let valorAntigo = "";
+let operadorAtual = "";
+let resultado = "";
 
 botoes.forEach((botao) => {
     botao.addEventListener('click', () => {
@@ -21,9 +23,29 @@ botoes.forEach((botao) => {
             display.value = valorAtual
         }
         if (tipo === 'operator') {
+            operadorAtual = valor
             valorAntigo = valorAtual
             valorAtual = ""
             display.value = valorAtual
+        }
+        if (tipo === 'result') {
+            let valorAntigoFormatado = parseInt(valorAntigo)
+            let valorAtualFormatado = parseInt(valorAtual)
+            switch(operadorAtual) {
+                case '+':
+                    resultado = valorAntigoFormatado + valorAtualFormatado
+                    break;
+                case '-':
+                    resultado = valorAntigoFormatado - valorAtualFormatado
+                    break;
+                case '/':
+                    resultado = valorAntigoFormatado / valorAtualFormatado
+                    break;
+                case '*':
+                   resultado = valorAntigoFormatado * valorAtualFormatado
+                    break;
+            }
+            display.value = resultado
         }
     });
 })
