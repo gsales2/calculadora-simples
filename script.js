@@ -10,6 +10,9 @@ botoes.forEach((botao) => {
     const tipo = botao.dataset.type;
     const valor = botao.dataset.value;
     if (tipo === "number") {
+        if(valor === "." && valorAtual.includes(".")) {
+            return
+        }
       let valorClicado = valor;
       valorAtual += valorClicado;
       display.value = valorAtual;
