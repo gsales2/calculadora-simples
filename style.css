@@ -113,10 +113,6 @@ hr {
     top: 1px;
 }
 
-.zero {
-
-}
-
 .igual {
     height: auto;
 }
@@ -151,4 +147,3 @@ hr {
 .botao16 {grid-area: 4 / 4 / 6 / 5;}
 .botao17 {grid-area: 5 / 1 / 6 / 3;}
 .botao18 {grid-area: 5 / 3 / 6 / 4;}
-.botao19 {grid-area: 4 / 4 / 6 / 5;}
