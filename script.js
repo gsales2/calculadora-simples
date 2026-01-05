@@ -45,7 +45,10 @@ botoes.forEach((botao) => {
                    resultado = valorAntigoFormatado * valorAtualFormatado
                     break;
             }
-            display.value = resultado
+            valorAtual = resultado
+            valorAntigo = ""
+            operadorAtual = ""
+            display.value = valorAtual
         }
     });
 })
