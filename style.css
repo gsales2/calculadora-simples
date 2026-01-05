@@ -65,6 +65,7 @@ main {
     flex-direction: column;
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 10px 10px 3px 0px rgba(0,0,0,0.43);
 }
 
 .display {
@@ -74,11 +75,18 @@ main {
 }
 
 input {
-    width: 100%;
+    width: 300px;
+    height: 63px;
     border: 1px solid #000000;
     border-radius: 5px;
 }
 
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
 
 .botoes {
     margin-top: 10px;
@@ -87,6 +95,35 @@ input {
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
+}
+
+.botao {
+    border-radius: 5px;
+    border: none;
+    box-shadow: 10px 10px;
+    box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.43);
+    text-align: center;
+    height: 60px;
+}
+
+.zero {
+
+}
+
+.igual {
+    height: auto;
+}
+
+.botao-sim {
+    background-color: #544c4b;
+    color: white;
+    font-weight: bold;
+}
+
+.botao-num {
+    background-color: #ccc7c6;
+    color: black;
+    font-weight: bold;
 }
 
 .botao1 {grid-area: 1 / 1 / 2 / 2;}
