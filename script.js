@@ -23,6 +23,9 @@ botoes.forEach((botao) => {
       valorAtual = valorAtual.slice(0, -1);
       display.value = valorAtual;
     } else if (tipo === "operator") {
+        if (operadorAtual || !valorAtual) {
+            return
+        }
       operadorAtual = valor;
       valorAntigo = valorAtual;
       valorAtual = "";
