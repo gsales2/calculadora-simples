@@ -1,11 +1,60 @@
+/* 1. Box sizing global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove margens padrão */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Altura base da página */
+html, body {
+  height: 100%;
+}
+
+/* 4. Melhor legibilidade de texto */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Imagens e mídias responsivas */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inputs herdam fonte */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Evita overflow estranho de texto */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
-
-.container-calc {
-    width: 100px;
-    height: auto;
 }
