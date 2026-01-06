@@ -62,10 +62,10 @@ botoes.forEach((botao) => {
         return;
       }
       resultado = calcular(valorAntigoFormatado, valorAtualFormatado, operadorAtual)
-      valorAtual = "";
-      valorAntigo = resultado;
+      valorAtual = String(resultado);
+      valorAntigo = "";
       operadorAtual = "";
-      display.value = valorAntigo;
+      display.value = valorAtual;
     }
   });
 });
