@@ -4,6 +4,7 @@ let valorAtual = "";
 let valorAntigo = "";
 let operadorAtual = "";
 let resultado = "";
+let displayTexto = "";
 
 botoes.forEach((botao) => {
   botao.addEventListener("click", () => {
@@ -13,15 +14,17 @@ botoes.forEach((botao) => {
         if(valor === "." && valorAtual.includes(".")) {
             return
         }
-      let valorClicado = valor;
-      valorAtual += valorClicado;
-      display.value = valorAtual;
+      valorAtual += valor;
+      displayTexto += valor;
+      display.value = displayTexto;
     } else if (tipo === "action" && valor === "clear") {
       valorAtual = "";
-      display.value = valorAtual;
+      displayTexto = "";
+      display.value = displayTexto;
     } else if (tipo === "action" && valor === "clear-entry") {
       valorAtual = valorAtual.slice(0, -1);
-      display.value = valorAtual;
+      displayTexto = displayTexto.slice(0, -1)
+      display.value = displayTexto;
     } else if (tipo === "operator") {
         if (operadorAtual || !valorAtual) {
             return
@@ -29,7 +32,9 @@ botoes.forEach((botao) => {
       operadorAtual = valor;
       valorAntigo = valorAtual;
       valorAtual = "";
-      display.value = operadorAtual;
+
+      displayTexto += `${valor}`
+      display.value = displayTexto;
     } else if (tipo === "result") {
       let valorAntigoFormatado = Number(valorAntigo);
       let valorAtualFormatado = Number(valorAtual);
