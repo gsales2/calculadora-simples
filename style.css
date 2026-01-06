@@ -53,13 +53,14 @@ h6 {
 
 body {
   background-color: #eb6538;
+  height: 100vh;
 }
 
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 95vh;
 }
 
 .container-calc {
