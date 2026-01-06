@@ -51,8 +51,11 @@ h6 {
   overflow-wrap: break-word;
 }
 
+body {
+  background-color: #eb6538;
+}
+
 main {
-    background-color: #eb6538;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,3 +150,26 @@ hr {
 .botao16 {grid-area: 4 / 4 / 6 / 5;}
 .botao17 {grid-area: 5 / 1 / 6 / 3;}
 .botao18 {grid-area: 5 / 3 / 6 / 4;}
+
+.rodape {
+  text-align: center;
+}
+
+.texto-rodape{
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.texto-rodape a {
+  position: relative;
+  color: rgb(58, 58, 58);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.texto-rodape a:hover {
+  position: relative;
+  color: blue;
+  font-size: 25px;
+}
+
