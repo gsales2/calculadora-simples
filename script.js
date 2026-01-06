@@ -6,6 +6,16 @@ let operadorAtual = "";
 let resultado = "";
 let displayTexto = "";
 
+function calcular(a, b, operador) {
+  switch (operador) {
+        case "+": return a + b
+        case "-": return a - b
+        case "*": return a * b
+        case "/": return b === 0 ? 'Erro' : a / b 
+       
+      }
+}
+
 botoes.forEach((botao) => {
   botao.addEventListener("click", () => {
     const tipo = botao.dataset.type;
@@ -26,15 +36,21 @@ botoes.forEach((botao) => {
       displayTexto = displayTexto.slice(0, -1)
       display.value = displayTexto;
     } else if (tipo === "operator") {
-        if (operadorAtual || !valorAtual) {
-            return
-        }
+        if (valorAntigo && operadorAtual) {
+          resultado = calcular(Number(valorAntigo), Number(valorAtual), operadorAtual)
+          operadorAtual = valor;
+      valorAntigo = resultado;
+      valorAtual = "";
+
+      displayTexto += `${valor}`
+      display.value = displayTexto;
+        } else{
       operadorAtual = valor;
       valorAntigo = valorAtual;
       valorAtual = "";
 
       displayTexto += `${valor}`
-      display.value = displayTexto;
+      display.value = displayTexto;}
     } else if (tipo === "result") {
       let valorAntigoFormatado = Number(valorAntigo);
       let valorAtualFormatado = Number(valorAtual);
@@ -45,24 +61,11 @@ botoes.forEach((botao) => {
         operadorAtual = "";
         return;
       }
-      switch (operadorAtual) {
-        case "+":
-          resultado = valorAntigoFormatado + valorAtualFormatado;
-          break;
-        case "-":
-          resultado = valorAntigoFormatado - valorAtualFormatado;
-          break;
-        case "/":
-          resultado = valorAntigoFormatado / valorAtualFormatado;
-          break;
-        case "*":
-          resultado = valorAntigoFormatado * valorAtualFormatado;
-          break;
-      }
-      valorAtual = resultado;
-      valorAntigo = "";
+      resultado = calcular(valorAntigoFormatado, valorAtualFormatado, operadorAtual)
+      valorAtual = "";
+      valorAntigo = resultado;
       operadorAtual = "";
-      display.value = valorAtual;
+      display.value = valorAntigo;
     }
   });
 });
