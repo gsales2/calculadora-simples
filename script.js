@@ -4,7 +4,6 @@ let valorAtual = "";
 let valorAntigo = "";
 let operadorAtual = "";
 let resultado = "";
-let displayTexto = "";
 
 function calcular(a, b, operador) {
   switch (operador) {
@@ -12,6 +11,8 @@ function calcular(a, b, operador) {
         case "-": return a - b
         case "*": return a * b
         case "/": return b === 0 ? 'Erro' : a / b 
+        default:
+          return a;
        
       }
 }
@@ -25,32 +26,34 @@ botoes.forEach((botao) => {
             return
         }
       valorAtual += valor;
-      displayTexto += valor;
-      display.value = displayTexto;
+      if(operadorAtual) {
+        display.value = `${valorAntigo}${operadorAtual}${valorAtual}`
+      }else {
+        display.value = `${valorAtual}`
+      }
     } else if (tipo === "action" && valor === "clear") {
       valorAtual = "";
-      displayTexto = "";
-      display.value = displayTexto;
+      valorAntigo = "";
+      operadorAtual = "";
+      display.value = valorAtual;
     } else if (tipo === "action" && valor === "clear-entry") {
       valorAtual = valorAtual.slice(0, -1);
-      displayTexto = displayTexto.slice(0, -1)
-      display.value = displayTexto;
+      display.value = valorAtual;
     } else if (tipo === "operator") {
+      if (!valorAtual) {return;}
         if (valorAntigo && operadorAtual) {
           resultado = calcular(Number(valorAntigo), Number(valorAtual), operadorAtual)
           operadorAtual = valor;
       valorAntigo = resultado;
       valorAtual = "";
 
-      displayTexto += `${valor}`
-      display.value = displayTexto;
+      display.value = `${valorAntigo}${operadorAtual}`;
         } else{
       operadorAtual = valor;
       valorAntigo = valorAtual;
       valorAtual = "";
 
-      displayTexto += `${valor}`
-      display.value = displayTexto;}
+      display.value = `${valorAntigo}${operadorAtual}`;}
     } else if (tipo === "result") {
       let valorAntigoFormatado = Number(valorAntigo);
       let valorAtualFormatado = Number(valorAtual);
